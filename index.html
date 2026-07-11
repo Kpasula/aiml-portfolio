@@ -202,9 +202,45 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
 .foot-bottom{max-width:var(--maxw);margin:0 auto;padding:20px 24px 40px;color:var(--faint);font-size:12.5px;
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.05)}
 .disclose{font-style:italic;max-width:70ch}
+
+/* ---------- preloader ---------- */
+#preload{position:fixed;inset:0;z-index:999;background:var(--ink0);display:grid;place-items:center;
+  transition:opacity .7s ease,visibility .7s}
+#preload.done{opacity:0;visibility:hidden}
+.pl-inner{text-align:center}
+.pl-logo{width:74px;height:74px;margin:0 auto 22px;border-radius:20px;display:grid;place-items:center;
+  font-family:var(--mono);font-weight:600;font-size:26px;color:#04121a;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));box-shadow:0 0 40px rgba(55,224,238,.5);
+  animation:plpop 1.4s cubic-bezier(.2,.8,.2,1) infinite alternate}
+@keyframes plpop{from{transform:scale(.9) rotate(-3deg)}to{transform:scale(1.05) rotate(3deg)}}
+.pl-bar{width:180px;height:3px;border-radius:3px;background:rgba(255,255,255,.1);margin:0 auto;overflow:hidden}
+.pl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));
+  animation:plfill 1.3s ease forwards}
+@keyframes plfill{to{width:100%}}
+.pl-txt{margin-top:16px;font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--faint);text-transform:uppercase}
+
+/* ---------- marquee ---------- */
+.marquee{position:relative;z-index:1;overflow:hidden;border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);padding:20px 0;background:rgba(255,255,255,.015);margin-top:20px}
+.marquee-track{display:flex;gap:40px;width:max-content;animation:scrollx 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--serif);font-weight:700;font-size:26px;color:transparent;
+  -webkit-text-stroke:1px rgba(166,179,217,.45);white-space:nowrap;display:inline-flex;align-items:center;gap:40px}
+.marquee span::after{content:"✦";-webkit-text-stroke:0;color:var(--cyan);font-size:15px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
 </style>
+
 </head>
 <body>
+
+<!-- PRELOADER -->
+<div id="preload">
+  <div class="pl-inner">
+    <div class="pl-logo">KP</div>
+    <div class="pl-bar"><i></i></div>
+    <div class="pl-txt">Loading portfolio</div>
+  </div>
+</div>
 
 <div class="bg-aurora"></div>
 <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
@@ -247,6 +283,18 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
   </div>
   <div class="scroll-hint"><div class="mouse"></div>SCROLL</div>
 </header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Machine Learning</span><span>React</span><span>Spring Boot</span><span>Generative AI</span>
+    <span>Prompt Engineering</span><span>Apache Kafka</span><span>AWS Cloud</span><span>TypeScript</span>
+    <span>Neural Networks</span><span>Data Visualization</span>
+    <span>Machine Learning</span><span>React</span><span>Spring Boot</span><span>Generative AI</span>
+    <span>Prompt Engineering</span><span>Apache Kafka</span><span>AWS Cloud</span><span>TypeScript</span>
+    <span>Neural Networks</span><span>Data Visualization</span>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -594,6 +642,10 @@ resize();draw();addEventListener('resize',resize);
 
 /* ---------- mobile menu (simple jump) ---------- */
 document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('artifacts').scrollIntoView({behavior:'smooth'})});
+
+/* ---------- preloader fade-out ---------- */
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('preload').classList.add('done');},900);});
+setTimeout(()=>{const p=document.getElementById('preload');if(p&&!p.classList.contains('done'))p.classList.add('done');},2600);
 </script>
 </body>
 </html>
