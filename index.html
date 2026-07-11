@@ -241,9 +241,9 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
     <a class="btn ghost" href="#value">My value proposition</a>
   </div>
   <div class="hero-stats">
-    <div class="s reveal"><div class="n" data-count="5">0</div><div class="l">Course artifacts</div></div>
+    <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Portfolio artifacts</div></div>
+    <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Live sites &amp; bots shipped</div></div>
     <div class="s reveal"><div class="n" data-count="70" data-suffix="+">0</div><div class="l">Years of AI mapped</div></div>
-    <div class="s reveal"><div class="n" data-count="2">0</div><div class="l">Live AI builds</div></div>
   </div>
   <div class="scroll-hint"><div class="mouse"></div>SCROLL</div>
 </header>
@@ -336,30 +336,31 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
       </div>
     </article>
 
-    <!-- Artifact 3: Self-assessment (placeholder) -->
-    <article class="art-card reveal soon" data-art="assess" tabindex="0">
+    <!-- Artifact 3: Leading Change self-assessment (real) -->
+    <article class="art-card reveal" data-art="assess" tabindex="0">
       <div class="glow"></div>
-      <div class="art-top"><span class="art-badge self">Workshop 1 · Leadership</span><span class="art-num">03</span></div>
+      <div class="art-top"><span class="art-badge self">Workshop 1.5 · Leadership</span><span class="art-num">03</span></div>
       <h3>Leading as a Learner</h3>
-      <div class="sub">Professional self-assessment</div>
-      <p>A reflection artifact from my Leading Change self-assessment — modeling the habit of honest
-        self-evaluation that many professionals skip.</p>
+      <div class="sub">Two change-readiness self-assessments</div>
+      <p>An honest map of my strengths and growth edges as a change leader — scored across two frameworks,
+        then redesigned to cut self-rating bias using leadership research.</p>
       <div class="art-foot">
-        <div class="art-tools"><span>Reflection</span><span>Self-assessment</span></div>
+        <div class="art-tools"><span>Self-assessment</span><span>Reflection</span><span>Research</span></div>
         <span class="art-open">Open entry <span class="arr">↗</span></span>
       </div>
     </article>
 
-    <!-- Artifact 4/5 future -->
-    <article class="art-card reveal soon" tabindex="0" style="cursor:default">
-      <div class="art-top"><span class="art-badge">Workshops 2–8 · Coming</span><span class="art-num">04</span></div>
-      <h3>More on the way</h3>
-      <div class="sub">Artifacts 4 &amp; 5</div>
-      <p>This portfolio grows each workshop. Future artifacts from the AI Lab, model-building, and applied
-        projects will land here — building toward the full five-artifact set.</p>
+    <!-- Artifact 4: Quincy the Bedlington (real live build) -->
+    <article class="art-card reveal" data-art="quincy" tabindex="0">
+      <div class="glow"></div>
+      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">04</span></div>
+      <h3>QuincyTheBedlington.com</h3>
+      <div class="sub">A shipped, self-built website</div>
+      <p>A live, hand-built static site deployed on Cloudflare Pages — evidence that I don't just design in
+        theory, I ship real products end-to-end, from code to a public domain.</p>
       <div class="art-foot">
-        <div class="art-tools"><span>AI Lab</span><span>Modeling</span><span>TBD</span></div>
-        <span class="art-open" style="color:var(--faint)">In progress</span>
+        <div class="art-tools"><span>Astro</span><span>Cloudflare</span><span>CI/CD</span></div>
+        <span class="art-open">Open entry <span class="arr">↗</span></span>
       </div>
     </article>
 
@@ -464,23 +465,42 @@ const ART = {
     preview:{src:"assets/spotlight-infographic.html",cap:"Live preview · SpotlightSpeaker marketing infographic"}
   },
   assess:{
-    sub:"Artifact 03 · Workshop 1 — Leadership & Reflection",
+    sub:"Artifact 03 · Workshop 1.5 — Leadership & Reflection",
     title:"Leading as a Learner",
     blocks:[
-      ["Introduction","A reflective artifact built from my \u201cLeading Change\u201d professional self-assessment — capturing where I stand today as a change leader and learner entering the AI/ML field."],
-      ["Objective","To model the discipline of honest self-evaluation: identifying my strengths, my growth edges, and a concrete plan for leading change in AI adoption — a step many professionals skip."],
-      ["Process","I completed a structured self-assessment, reflected on the results against real examples from my engineering work, and distilled them into a short, shareable narrative of how I lead as a learner."],
-      ["Tools & Technologies","Self-assessment framework · reflective writing · GenAI chatbot as a thinking partner."],
-      ["Value Proposition","It shows self-awareness and growth mindset — qualities that matter as much as technical skill when leading AI change inside an organization."],
-      ["Unique Value","Rather than claiming expertise, it demonstrates <em>how</em> I close gaps — the meta-skill that keeps someone valuable in a fast-moving field."],
-      ["Relevance","Every AI initiative is a change-management challenge; leaders who can assess themselves can better guide teams through it."],
+      ["Introduction","A reflective artifact built from two \u201cLeading Change\u201d self-assessments \u2014 an AI/ML Integration Leadership scorecard and a broader Change Management scorecard \u2014 that together map exactly where I stand as a change leader entering the AI/ML field."],
+      ["Objective","To practice the discipline of honest self-evaluation: score specific leadership behaviors, name my real strengths and growth edges rather than assume competence, and turn the results into a concrete plan for leading AI adoption."],
+      ["Description","On the AI/ML Integration assessment my top strengths were Technical Understanding (16), Stakeholder Communication (15), and Continuous Improvement (13), with growth areas in Project Management (8), Change Readiness (9), and Adoption Strategies (10). On the Change Management assessment my strengths were Critical Thinking (19/20), Problem-Solving (23/25), and Implementing New Technologies (9/10), with growth areas in Change Management Knowledge (7/15), Performance Evaluation (10/20), and Leadership (14/25). The pattern is clear: I'm strongest where work is technical and analytical, and I have the most room to grow where it is organizational and people-facing."],
+      ["Process","I completed both self-assessments, scored each behavior, then critiqued the tools themselves \u2014 identifying self-rating bias as their key limitation. Using leadership research, I proposed concrete revisions: adding scenario-based prompts (data quality, model bias, post-deployment monitoring) to the AI/ML assessment, and items on handling resistance and measuring adoption to the Change Management assessment."],
+      ["Tools & Technologies","Structured self-assessment scorecards · reflective writing · leadership research (CCL, 2024; Change Strategists, 2023)."],
+      ["Value Proposition","It shows self-awareness and a growth mindset \u2014 and the ability to critique a measurement tool, not just use it \u2014 qualities that matter as much as technical skill when leading AI change inside an organization."],
+      ["Unique Value","Rather than claiming expertise, it demonstrates <em>how</em> I close gaps: I diagnosed self-rating bias in the assessments and redesigned them with behavioral, scenario-based evidence \u2014 the meta-skill that keeps someone valuable in a fast-moving field."],
+      ["Relevance","Every AI initiative is a change-management challenge. A leader who can honestly assess themselves \u2014 and improve the assessment itself \u2014 can better guide a team through adoption."],
+      ["References","Center for Creative Leadership. (2024, August 15). <em>How to be a successful change leader.</em> &nbsp;|&nbsp; Change Strategists. (2023, May 31). <em>How to assess change management skills.</em>"],
     ],
-    tools:["Reflection","Self-assessment","Leadership"],
+    tools:["Self-assessment","Reflection","Leadership Research"],
     actions:[],
     preview:null,
-    note:"This entry is being finalized — the written reflection is submitted privately to the instructor per the assignment; the public artifact summary lives here."
+    note:"Per the assignment, my full written reflection is submitted privately to the instructor in Brightspace; this public entry summarizes the artifact and its value."
+  },
+  quincy:{
+    sub:"Bonus Artifact · Live Personal Build",
+    title:"QuincyTheBedlington.com",
+    blocks:[
+      ["Introduction","A live, public website I designed, built, and deployed myself \u2014 included as evidence that my engineering skills produce real, shipped products, not just coursework."],
+      ["Objective","To own a project end-to-end: from writing the code, to setting up automated deployment, to publishing on a real custom domain that anyone can visit."],
+      ["Process","I built the site as a fast static site (Astro), added a Prettier-based formatting and quality workflow, and set up continuous deployment to Cloudflare Pages so every commit ships automatically to the live domain."],
+      ["Tools & Technologies","Astro · HTML/CSS · JavaScript · Cloudflare Pages · Git &amp; CI/CD · Prettier."],
+      ["Value Proposition","It proves the \u2018ship it\u2019 half of my value proposition: I can take an idea all the way to a live, maintained product on the open web \u2014 the same discipline I bring to AI/ML work.",],
+      ["Unique Value","Beyond coursework, it shows initiative and self-direction \u2014 I build and maintain real software on my own time, with production hygiene (formatting, CI, automated deploys)."],
+      ["Relevance","For any employer, a candidate who already ships and maintains live products needs far less ramp-up to contribute to a real codebase."],
+    ],
+    tools:["Astro","Cloudflare Pages","CI/CD","Git"],
+    actions:[["\u2726 Visit the live site","https://quincythebedlington.com","primary"]],
+    preview:{src:"https://quincythebedlington.com",cap:"Live preview · quincythebedlington.com"}
   }
 };
+
 
 /* ---------- modal open/close ---------- */
 const back=document.getElementById('modalBack'),body=document.getElementById('modalBody'),
