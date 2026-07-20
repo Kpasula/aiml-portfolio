@@ -277,7 +277,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
     <a class="btn ghost" href="#value">My value proposition</a>
   </div>
   <div class="hero-stats">
-    <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Portfolio artifacts</div></div>
+    <div class="s reveal"><div class="n" data-count="4">0</div><div class="l">Portfolio artifacts</div></div>
     <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Live sites &amp; bots shipped</div></div>
     <div class="s reveal"><div class="n" data-count="70" data-suffix="+">0</div><div class="l">Years of AI mapped</div></div>
   </div>
@@ -398,10 +398,25 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
       </div>
     </article>
 
-    <!-- Artifact 4: Quincy the Bedlington (real live build) -->
+    <!-- Artifact 4: ML vs Deep Learning report -->
+    <article class="art-card reveal" data-art="mldl" tabindex="0">
+      <div class="glow"></div>
+      <div class="art-top"><span class="art-badge tl">Workshop 2.3 · ML vs DL</span><span class="art-num">04</span></div>
+      <h3>Machine Learning vs. Deep Learning</h3>
+      <div class="sub">When to reach for which — and why</div>
+      <p>An analytical report that pairs each approach to the problem it actually fits — spam filtering for
+        classic ML, retinal-image screening for deep learning — and argues why the other approach would be the
+        wrong tool.</p>
+      <div class="art-foot">
+        <div class="art-tools"><span>Technical Writing</span><span>ML/DL</span><span>APA</span></div>
+        <span class="art-open">Open entry <span class="arr">↗</span></span>
+      </div>
+    </article>
+
+    <!-- Artifact 5: Quincy the Bedlington (real live build) -->
     <article class="art-card reveal" data-art="quincy" tabindex="0">
       <div class="glow"></div>
-      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">04</span></div>
+      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">05</span></div>
       <h3>QuincyTheBedlington.com</h3>
       <div class="sub">A shipped, self-built website</div>
       <p>A live, hand-built static site deployed on Cloudflare Pages — evidence that I don't just design in
@@ -530,6 +545,24 @@ const ART = {
     actions:[],
     preview:null,
     note:"Per the assignment, my full written reflection is submitted privately to the instructor in Brightspace; this public entry summarizes the artifact and its value."
+  },
+  mldl:{
+    sub:"Artifact 04 · Workshop 2.3 — Machine Learning vs. Deep Learning",
+    title:"Machine Learning vs. Deep Learning",
+    blocks:[
+      ["Introduction","A written analytical report that compares classic machine learning with deep learning by working through two real-world applications and deciding, for each, which approach is the right tool and which is the wrong one."],
+      ["Description","The report examines two cases. For <em>email spam detection</em> it argues that simple machine learning is the right fit and deep learning is overkill; for <em>diabetic-retinopathy screening from retinal images</em> it argues the reverse. Each case explains why the chosen method fits the data and why the alternative fails, and the paper closes with a rule for matching the method to the problem rather than defaulting to the most powerful model."],
+      ["Objective","To show clear judgment about <em>when</em> to use deep learning and when a lighter model is the better engineering choice \u2014 the decision that actually matters in practice, not just knowing the definitions."],
+      ["Process","I selected two contrasting applications from the workshop, researched a real-world deployment of each, and built a symmetric argument for both: why the chosen approach fits the structure of the data and cost constraints, and why the opposing approach does not. I then supported each claim with a peer-reviewed or foundational source and formatted the whole paper to APA 7 (title page, headings, in-text citations, and a references page)."],
+      ["Tools & Technologies","Technical writing \u00b7 machine-learning &amp; deep-learning concepts \u00b7 source research (JAMA, AAAI, Goodfellow et al.) \u00b7 APA 7 formatting \u00b7 Microsoft Word."],
+      ["Value Proposition","This artifact proves I can make a <em>defensible technology-selection decision</em> and explain it to a non-specialist \u2014 the same reasoning I use when choosing whether a problem needs a heavyweight model or a simple, cheaper, more transparent one."],
+      ["Unique Value","It does not just define the two approaches; it argues the trade-offs \u2014 data volume, compute cost, interpretability, and accountability \u2014 and shows that the <em>right</em> answer depends on the problem, which is the judgment employers actually pay for."],
+      ["Relevance","Every applied-AI project starts with \u2018which model class do we even need?\u2019 Choosing correctly saves cost and risk; this report is a worked example of making that call and justifying it."],
+      ["References","Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep learning.</em> MIT Press. &nbsp;|&nbsp; Gulshan, V., et al. (2016). Development and validation of a deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs. <em>JAMA, 316</em>(22), 2402\u20132410. &nbsp;|&nbsp; Sahami, M., Dumais, S., Heckerman, D., &amp; Horvitz, E. (1998). A Bayesian approach to filtering junk e-mail. <em>AAAI Workshop.</em>"],
+    ],
+    tools:["Technical Writing","ML/DL","Research","APA 7"],
+    actions:[["Open the report (PDF)","assets/ml-vs-dl-report.pdf","primary"]],
+    preview:{src:"assets/ml-vs-dl-report.pdf#view=FitH",cap:"Live preview · Machine Learning vs. Deep Learning report (PDF)"}
   },
   quincy:{
     sub:"Bonus Artifact · Live Personal Build",
