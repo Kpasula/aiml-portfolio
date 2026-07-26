@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Machine Learning Training Methods — AI-Coached Study Session</title>
+<style>
+  @page { size: Letter; margin: 0.9in 0.85in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1a1f2b; line-height: 1.5; font-size: 11.5pt; margin: 0;
+  }
+  .cover {
+    text-align: center; padding: 1.4in 0 0.5in;
+    border-bottom: 3px solid #2b6cb0; margin-bottom: 26px;
+  }
+  .eyebrow {
+    font-family: "Helvetica Neue", Arial, sans-serif; letter-spacing: .18em;
+    text-transform: uppercase; font-size: 9pt; color: #2b6cb0; font-weight: 700;
+  }
+  h1 { font-size: 23pt; margin: 12px 0 6px; line-height: 1.15; }
+  .sub { color: #556; font-size: 12pt; font-style: italic; }
+  .byline {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.5pt;
+    color: #667; margin-top: 16px;
+  }
+  h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 13pt;
+    color: #2b6cb0; margin: 22px 0 4px; border-bottom: 1px solid #d9e2ec;
+    padding-bottom: 4px;
+  }
+  h3 { font-size: 11.5pt; margin: 14px 0 2px; color: #22304a; }
+  p { margin: 6px 0; }
+  .lead { font-size: 12pt; color: #33405a; }
+  .concept {
+    background: #f6f9fc; border-left: 3px solid #2b6cb0;
+    padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0;
+    page-break-inside: avoid;
+  }
+  .concept .q {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700;
+    font-size: 10pt; color: #22304a; margin-bottom: 3px;
+  }
+  .analogy { color: #2b6cb0; font-style: italic; }
+  .tag {
+    display: inline-block; font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 8pt; letter-spacing: .06em; text-transform: uppercase;
+    background: #2b6cb0; color: #fff; padding: 2px 8px; border-radius: 10px;
+    margin-bottom: 6px;
+  }
+  ul { margin: 6px 0 6px 18px; padding: 0; }
+  li { margin: 3px 0; }
+  .foot {
+    margin-top: 26px; border-top: 1px solid #d9e2ec; padding-top: 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9pt; color: #778;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">Workshop 3.3 · Machine Learning Fundamentals</div>
+  <h1>Machine Learning Training Methods</h1>
+  <div class="sub">Field notes from an AI-coached study session</div>
+  <div class="byline">
+    Koushik Reddy Pasula &nbsp;·&nbsp; MS, Artificial Intelligence and Machine Learning<br>
+    AIML-500 · Indiana Wesleyan University
+  </div>
+</div>
+
+<p class="lead">This artifact captures a guided study session in which I worked through the core
+machine-learning training methods in dialogue with an AI coach. Rather than reading definitions, I
+stated my own understanding of each concept first, tested it against the coach, and pushed back with
+follow-up questions. The value of the exercise was not memorizing terms — it was building an
+intuition I can explain to a non-specialist, and connecting each idea to a real engineering example.</p>
+
+<h2>The learning approaches</h2>
+
+<div class="concept">
+  <span class="tag">Supervised learning</span>
+  <div class="q">How does a model learn from labeled data?</div>
+  <p>It learns from examples where the correct answer is attached. The model guesses, compares against
+  the real answer, measures how far off it was, and adjusts to close the gap — repeated over many
+  examples until it maps inputs to outputs.</p>
+  <p class="analogy">My anchor: studying with an answer key. Real example: fraud detection on card
+  transactions, trained on past transactions already labeled fraud or not fraud.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Unsupervised learning</span>
+  <div class="q">What is the main approach when there are no labels?</div>
+  <p>No answer key exists. The model is handed raw data and finds structure on its own — grouping
+  similar items, separating clusters, and flagging outliers, without being told what the groups mean.</p>
+  <p class="analogy">My anchor: customer segmentation — grouping users by behavior without predefining
+  the segments. The honest test of quality is a downstream metric (does acting on the segments move a
+  real number like click rate?), not just how clean the clusters look.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Reinforcement learning</span>
+  <div class="q">How does an agent learn the best actions?</div>
+  <p>Trial and error with rewards. The agent acts, receives a reward or penalty, and over many attempts
+  learns which actions pay off — balancing exploring new moves against exploiting what already works.
+  Delayed rewards are handled by <em>credit assignment</em>: when a win finally arrives, the reward is
+  propagated backward across every step that led to it.</p>
+  <p class="analogy">My anchor: a restaurant tip. A big tip at the end teaches the server that the whole
+  sequence — the greeting, the refills, the timing — contributed to the reward.</p>
+</div>
+
+<h2>How training actually works</h2>
+
+<div class="concept">
+  <span class="tag">Loss &amp; optimization</span>
+  <div class="q">How does "how wrong" become a direction to adjust?</div>
+  <p>A loss function scores how wrong each prediction is, and gradient descent uses that score to step
+  the model's weights toward lower error. The optimization algorithm sets how big a step to take and
+  which way — a poor one either crawls or overshoots the minimum.</p>
+  <p class="analogy">My anchor: walking downhill in fog. Loss is your altitude; the gradient tells you
+  which way is down; you take a small step and measure again.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Iteration &amp; overfitting</span>
+  <div class="q">How does repetition help, and when does it hurt?</div>
+  <p>One pass only nudges the model slightly; repeated passes let small corrections accumulate until the
+  error settles. Too many passes and the model starts memorizing the training data instead of the
+  pattern. The signal to stop is when validation error stops falling and starts rising.</p>
+  <p class="analogy">My anchor: overfitting is like hardcoding answers for the exact test cases you were
+  given — it passes the exam and fails on real input. Holding back a test set is the only honest check
+  that the model learned the pattern, not the answer key.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Algorithms &amp; data</span>
+  <div class="q">Why do algorithms and examples matter so much?</div>
+  <p>The algorithm is the method — it decides how patterns are interpreted and how the model updates.
+  The data is the knowledge — it is the model's only teacher, so its quality, quantity, and variety
+  set the ceiling on what can be learned. A wrong-fit algorithm still runs; it just produces a worse
+  result.</p>
+  <p class="analogy">My anchor: using a hammer to drive a screw. The whole pipeline mirrors a software
+  lifecycle — define the problem, gather and clean inputs, build, test on unseen cases, tune, deploy —
+  where data preparation is the biggest hidden cost.</p>
+</div>
+
+<h2>What the session came down to</h2>
+<p>Three ideas tie the entire topic together, and I can now state them in one line each:</p>
+<ul>
+  <li><strong>The algorithm is the method</strong> — how the model learns.</li>
+  <li><strong>The data is the knowledge</strong> — what the model can possibly learn.</li>
+  <li><strong>Training is practice</strong> — the loop of guessing, measuring error, and adjusting until
+  the model generalizes to inputs it has never seen.</li>
+</ul>
+
+<div class="foot">
+  Artifact 05 · Workshop 3.3 — Machine Learning Training Methods &nbsp;|&nbsp; AIML-500, Indiana Wesleyan
+  University. Session conducted with an AI training-methods coach; understanding, analogies, and
+  real-world examples are my own.
+</div>
+
+</body>
+</html>
