@@ -277,7 +277,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
     <a class="btn ghost" href="#value">My value proposition</a>
   </div>
   <div class="hero-stats">
-    <div class="s reveal"><div class="n" data-count="5">0</div><div class="l">Portfolio artifacts</div></div>
+    <div class="s reveal"><div class="n" data-count="6">0</div><div class="l">Portfolio artifacts</div></div>
     <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Live sites &amp; bots shipped</div></div>
     <div class="s reveal"><div class="n" data-count="70" data-suffix="+">0</div><div class="l">Years of AI mapped</div></div>
   </div>
@@ -428,10 +428,25 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
       </div>
     </article>
 
-    <!-- Artifact 6: Quincy the Bedlington (real live build) -->
+    <!-- Artifact 6: Navigating Human Bias in AI leadership -->
+    <article class="art-card reveal" data-art="bias" tabindex="0">
+      <div class="glow"></div>
+      <div class="art-top"><span class="art-badge self">Workshop 4.4 · Responsible AI</span><span class="art-num">06</span></div>
+      <h3>Navigating Human Bias in AI</h3>
+      <div class="sub">A value statement and field strategies</div>
+      <p>A personal value statement plus five field strategies for keeping human bias out of AI systems —
+        from data selection and per-group testing to diverse review, honest training, and post-deployment
+        accountability, framed through a software engineer's evidence-first lens.</p>
+      <div class="art-foot">
+        <div class="art-tools"><span>Responsible AI</span><span>Ethics</span><span>Leadership</span></div>
+        <span class="art-open">Open entry <span class="arr">↗</span></span>
+      </div>
+    </article>
+
+    <!-- Artifact 7: Quincy the Bedlington (real live build) -->
     <article class="art-card reveal" data-art="quincy" tabindex="0">
       <div class="glow"></div>
-      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">06</span></div>
+      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">07</span></div>
       <h3>QuincyTheBedlington.com</h3>
       <div class="sub">A shipped, self-built website</div>
       <p>A live, hand-built static site deployed on Cloudflare Pages — evidence that I don't just design in
@@ -595,6 +610,23 @@ const ART = {
     tools:["AI-Assisted Learning","ML Theory","Prompt Engineering","Technical Writing"],
     actions:[["Open the field notes (PDF)","assets/training-methods-report.pdf","primary"]],
     preview:{src:"assets/training-methods-report.pdf#view=FitH",cap:"Live preview · ML Training Methods field notes (PDF)"}
+  },
+  bias:{
+    sub:"Artifact 06 · Workshop 4.4 — Navigating Human Bias",
+    title:"Navigating Human Bias in AI Leadership",
+    blocks:[
+      ["Introduction","A personal value statement and a set of field-specific strategies for keeping human bias out of the AI/ML systems I help build \u2014 written from the standpoint of a software engineer moving into AI leadership."],
+      ["Description","Human bias does not enter a model only through the algorithm. It enters through which problems get attention, what data is selected, how data is labeled, how results are interpreted, and whose concerns are taken seriously. The artifact names that reality and then commits to five concrete practices against it: (1) review data quality and selection before approving a model; (2) test across groups and situations instead of trusting one accuracy score; (3) bring testers, security, business partners, and affected users into review, not just the build team; (4) lead the change with honest communication and training that shows the failures, not only the wins; and (5) keep reviewing bias after deployment through feedback, overrides, and outcome monitoring."],
+      ["Objective","To articulate the value I would lead by \u2014 evidence over assumption, fairness and accountability as part of system quality \u2014 and to translate it into practices a team can actually follow across the AI/ML lifecycle."],
+      ["Process","I wrote a personal value statement, then derived five strategies mapped to the stages where bias enters (data, testing, review, rollout, and monitoring). I grounded each one in a real software-engineering habit \u2014 checking logs, API responses, and null values before drawing a conclusion \u2014 and formatted the result as a professional one-page report exported to PDF. I used generative AI to help organize and refine the wording and disclosed it."],
+      ["Tools & Technologies","Responsible-AI &amp; fairness concepts \u00b7 change-leadership reasoning \u00b7 technical writing \u00b7 HTML/CSS report design \u00b7 headless-Chrome PDF export \u00b7 generative AI (disclosed)."],
+      ["Value Proposition","This artifact proves I treat fairness, transparency, and accountability as <em>engineering requirements</em>, not slogans \u2014 the judgment an organization needs from anyone who ships AI that affects real people."],
+      ["Unique Value","It reframes AI ethics through an engineer's debugging discipline: the same refusal to trust a system until it is checked against real evidence becomes the mechanism for catching bias before it ships."],
+      ["Relevance","Every AI initiative is also a change-management and governance challenge. A leader who can name where bias enters and put practical guardrails at each stage reduces both real harm and organizational risk."],
+    ],
+    tools:["Responsible AI","Ethics","Change Leadership","Technical Writing"],
+    actions:[["Open the report (PDF)","assets/navigating-bias-report.pdf","primary"]],
+    preview:{src:"assets/navigating-bias-report.pdf#view=FitH",cap:"Live preview · Navigating Human Bias report (PDF)"}
   },
   quincy:{
     sub:"Bonus Artifact · Live Personal Build",

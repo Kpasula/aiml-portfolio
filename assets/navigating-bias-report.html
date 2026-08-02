@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Navigating Human Bias in Software Engineering and AI Leadership</title>
+<style>
+  @page { size: Letter; margin: 0.9in 0.85in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1a1f2b; line-height: 1.5; font-size: 11.5pt; margin: 0;
+  }
+  .cover {
+    text-align: center; padding: 1.4in 0 0.5in;
+    border-bottom: 3px solid #2b6cb0; margin-bottom: 26px;
+  }
+  .eyebrow {
+    font-family: "Helvetica Neue", Arial, sans-serif; letter-spacing: .18em;
+    text-transform: uppercase; font-size: 9pt; color: #2b6cb0; font-weight: 700;
+  }
+  h1 { font-size: 22pt; margin: 12px 0 6px; line-height: 1.15; }
+  .sub { color: #556; font-size: 12pt; font-style: italic; }
+  .byline {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.5pt;
+    color: #667; margin-top: 16px;
+  }
+  h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 13pt;
+    color: #2b6cb0; margin: 22px 0 4px; border-bottom: 1px solid #d9e2ec;
+    padding-bottom: 4px;
+  }
+  h3 { font-size: 11.5pt; margin: 14px 0 2px; color: #22304a; }
+  p { margin: 6px 0; }
+  .lead { font-size: 12pt; color: #33405a; }
+  .concept {
+    background: #f6f9fc; border-left: 3px solid #2b6cb0;
+    padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0;
+    page-break-inside: avoid;
+  }
+  .concept .q {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700;
+    font-size: 10pt; color: #22304a; margin-bottom: 3px;
+  }
+  .eng { color: #2b6cb0; font-style: italic; }
+  .tag {
+    display: inline-block; font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 8pt; letter-spacing: .06em; text-transform: uppercase;
+    background: #2b6cb0; color: #fff; padding: 2px 8px; border-radius: 10px;
+    margin-bottom: 6px;
+  }
+  ul { margin: 6px 0 6px 18px; padding: 0; }
+  li { margin: 3px 0; }
+  .foot {
+    margin-top: 26px; border-top: 1px solid #d9e2ec; padding-top: 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9pt; color: #778;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">Workshop 4.4 · Machine Learning Fundamentals</div>
+  <h1>Navigating Human Bias in Software<br>Engineering and AI Leadership</h1>
+  <div class="sub">A personal value statement and field strategies for responsible AI</div>
+  <div class="byline">
+    Koushik Reddy Pasula &nbsp;·&nbsp; MS, Artificial Intelligence and Machine Learning<br>
+    AIML-500 · Indiana Wesleyan University
+  </div>
+</div>
+
+<p class="lead">Human bias does not enter an AI system only through the algorithm. It enters through which
+  problems get attention, what data is selected, how data is labeled, how results are interpreted, and whose
+  concerns are taken seriously. When those human choices become part of a model, the system can repeat or amplify
+  the same bias while appearing neutral. This artifact sets out the value I would lead by and the concrete
+  strategies I would use to keep bias in check across the AI/ML lifecycle.</p>
+
+<h2>Personal Value Statement</h2>
+<p>As a software engineer preparing to take on more responsibility in AI/ML projects, my core value is to make
+  decisions based on evidence while remaining willing to question my own assumptions. I believe fairness,
+  transparency, and accountability should be treated as part of system quality — not as an afterthought. An AI
+  system should not be considered successful only because it is accurate, fast, or less expensive. Leaders must
+  also ask whether the data represents the intended users, whether the system performs consistently across
+  different situations, and whether people can challenge an incorrect or unfair result.</p>
+<p>My role as a leader is to create an environment where employees can question assumptions without being viewed
+  as resistant to change. I also have to recognize that technical experience does not make my judgment
+  automatically objective. I must listen to people with different roles and experiences, examine evidence that
+  challenges my preferred solution, and accept responsibility when a system needs to be changed.</p>
+
+<h2>Field-Specific Strategies for Addressing Human Bias</h2>
+
+<div class="concept">
+  <span class="tag">Strategy 1 · Data</span>
+  <div class="q">Review data quality and data selection before building or approving a model</div>
+  <p>I would ask where the data came from, which users are represented, what information is missing, and whether
+    human labeling introduced personal judgment. <span class="eng">In software engineering this is the same
+    discipline as investigating application logs, API responses, null values, and incomplete database records
+    before deciding what caused an issue.</span> Making a decision before reviewing the complete evidence is how
+    confirmation bias slips in.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Strategy 2 · Testing</span>
+  <div class="q">Test across different groups and real-world situations, not one overall accuracy score</div>
+  <p>A model can perform well on average while producing more false positives or false negatives for a smaller
+    group. The team should measure error rates per group and investigate those differences before deployment,
+    rather than trusting a single headline metric.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Strategy 3 · Diverse Review</span>
+  <div class="q">Include more than the build team in important reviews</div>
+  <p>I would bring in technical teams, business partners, testers, security professionals, and affected users. The
+    people who build a system should not be the only people deciding whether it is fair or ready to use. Different
+    perspectives surface assumptions and risks that one team will overlook.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Strategy 4 · Communication</span>
+  <div class="q">Lead the change with clear communication and honest training</div>
+  <p>People need to understand why an AI tool is being introduced, what it can and cannot do, how it affects their
+    responsibilities, and when human review is still required. Training should include examples of inaccurate or
+    biased outputs, not only examples where the system works — which reduces both resistance to change and
+    automation bias, where employees trust a system mainly because it is automated.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Strategy 5 · Ongoing Accountability</span>
+  <div class="q">Keep reviewing bias after implementation</div>
+  <p>I would collect user feedback, monitor complaints and human overrides, compare outcomes over time, and
+    investigate unusual patterns. Leaders must be willing to revise, pause, or remove an AI system when the
+    evidence shows it is producing unfair or harmful outcomes.</p>
+</div>
+
+<h2>Conclusion</h2>
+<p>Navigating human bias requires more than awareness training. It requires self-reflection, diverse
+  participation, careful testing, open communication, and continuing accountability throughout the AI/ML
+  lifecycle. The engineer's habit of not trusting a system until it has been checked against real evidence is the
+  same habit responsible AI leadership demands.</p>
+
+<div class="foot">
+  Portfolio Artifact 4 · AIML-500: Machine Learning Fundamentals · Indiana Wesleyan University<br>
+  Generative AI disclosure: ChatGPT (OpenAI) was used to help organize ideas and refine wording. The value
+  statement, strategies, and engineering examples are the author's own.
+</div>
+
+</body>
+</html>
