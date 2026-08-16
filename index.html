@@ -277,7 +277,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
     <a class="btn ghost" href="#value">My value proposition</a>
   </div>
   <div class="hero-stats">
-    <div class="s reveal"><div class="n" data-count="6">0</div><div class="l">Portfolio artifacts</div></div>
+    <div class="s reveal"><div class="n" data-count="7">0</div><div class="l">Portfolio artifacts</div></div>
     <div class="s reveal"><div class="n" data-count="3">0</div><div class="l">Live sites &amp; bots shipped</div></div>
     <div class="s reveal"><div class="n" data-count="70" data-suffix="+">0</div><div class="l">Years of AI mapped</div></div>
   </div>
@@ -314,7 +314,10 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
       <p>This portfolio is designed as a <b>resource site</b>, not a filing cabinet. Each artifact shows my
         thinking and process so a future teammate, employer, or fellow learner can see how I approach a problem —
         and reuse what's useful.</p>
-      <p class="edit">Bio is grounded in verifiable facts; swap in your years of experience / current title if you want it more specific.</p>
+      <p class="mini-title" style="margin-top:22px">Target Audience</p>
+      <p>This portfolio is written for <b>hiring managers, engineering leaders, and fellow learners</b> in AI
+        and machine learning — readers who want to see not just what I built, but how I think, so they can
+        judge how I would approach their problems and reuse whatever is useful in their own work.</p>
     </div>
     <div class="card-glass reveal">
       <p class="mini-title">Where I focus</p>
@@ -443,10 +446,25 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.06);ma
       </div>
     </article>
 
-    <!-- Artifact 7: Quincy the Bedlington (real live build) -->
+    <!-- Artifact 7: AI Incidents and Ethics -->
+    <article class="art-card reveal" data-art="incidents" tabindex="0">
+      <div class="glow"></div>
+      <div class="art-top"><span class="art-badge self">Workshop 6.2 · AI Ethics</span><span class="art-num">07</span></div>
+      <h3>AI Incidents and Ethics</h3>
+      <div class="sub">Racial bias in a healthcare risk algorithm</div>
+      <p>A case-study analysis of a real, documented AI failure — a widely used healthcare risk algorithm that
+        underestimated Black patients' needs because it used cost as a proxy for health — breaking down three
+        ethical issues and a concrete mitigation for each.</p>
+      <div class="art-foot">
+        <div class="art-tools"><span>AI Ethics</span><span>Case Study</span><span>APA 7</span></div>
+        <span class="art-open">Open entry <span class="arr">↗</span></span>
+      </div>
+    </article>
+
+    <!-- Artifact 8: Quincy the Bedlington (real live build) -->
     <article class="art-card reveal" data-art="quincy" tabindex="0">
       <div class="glow"></div>
-      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">07</span></div>
+      <div class="art-top"><span class="art-badge bot">Bonus · Live Build</span><span class="art-num">08</span></div>
       <h3>QuincyTheBedlington.com</h3>
       <div class="sub">A shipped, self-built website</div>
       <p>A live, hand-built static site deployed on Cloudflare Pages — evidence that I don't just design in
@@ -627,6 +645,24 @@ const ART = {
     tools:["Responsible AI","Ethics","Change Leadership","Technical Writing"],
     actions:[["Open the report (PDF)","assets/navigating-bias-report.pdf","primary"]],
     preview:{src:"assets/navigating-bias-report.pdf#view=FitH",cap:"Live preview · Navigating Human Bias report (PDF)"}
+  },
+  incidents:{
+    sub:"Artifact 07 · Workshop 6.2 — AI Incidents and Ethics",
+    title:"AI Incidents and Ethics",
+    blocks:[
+      ["Introduction","A case-study analysis of a real, documented AI failure: a widely used U.S. healthcare risk algorithm that helped decide which patients received extra care, and was found in 2019 to systematically underestimate the needs of Black patients."],
+      ["Description","The algorithm never used race as an input. It predicted future healthcare <em>cost</em> as a proxy for health <em>need</em>. Because less money had historically been spent on Black patients with the same level of illness, the model scored them as lower-risk than equally sick white patients. Correcting the proxy would have more than doubled the share of Black patients flagged for additional care. I break the incident into three ethical issues \u2014 unequal access to care, a misleading proxy target, and weak transparency and accountability \u2014 and propose a concrete mitigation for each."],
+      ["Objective","To move past \u2018AI ethics\u2019 as a slogan and analyze a real incident the way an engineer analyzes a production failure: find the root cause, trace where it entered the system, and propose a fix that would actually prevent recurrence."],
+      ["Process","I selected the incident, verified it against the peer-reviewed source and an independent incident database, then reasoned through why an apparently neutral model produced biased outcomes. For each ethical issue I documented why I chose it, how my thinking changed, and a specific mitigation \u2014 redefining the prediction target around clinical need, justifying and subgroup-testing every proxy variable, and requiring independent bias audits with a named accountable owner."],
+      ["Tools & Technologies","Applied-AI ethics analysis \u00b7 fairness &amp; proxy-variable reasoning \u00b7 source verification (Science, PubMed, AI Incident Database) \u00b7 technical writing \u00b7 APA 7 \u00b7 HTML/CSS report design \u00b7 headless-Chrome PDF export."],
+      ["Value Proposition","This artifact proves I can diagnose <em>why</em> an AI system causes harm, not just label it \u2018biased\u2019 \u2014 tracing the failure back to how the problem and target were defined, which is exactly the judgment needed to keep real systems trustworthy."],
+      ["Unique Value","It reframes fairness as a root-cause engineering problem: the bias entered before training, in the choice of target variable, so the fix is upstream \u2014 an insight most \u2018bias\u2019 conversations miss."],
+      ["Relevance","Proxy targets, cost stand-ins, and unaudited risk scores are everywhere in industry. Being able to spot a harmful proxy before deployment is directly transferable to any team shipping models that affect real people."],
+      ["References","Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science, 366</em>(6464), 447\u2013453. https://doi.org/10.1126/science.aax2342 &nbsp;|&nbsp; National Library of Medicine. (2019). PubMed record (PMID 31649194). https://pubmed.ncbi.nlm.nih.gov/31649194/ &nbsp;|&nbsp; AI Incident Database. (2019). Incident 124: Optum Algorithmic Health Risk Scores. https://incidentdatabase.ai/cite/124/"],
+    ],
+    tools:["AI Ethics","Case Study","Fairness","APA 7"],
+    actions:[["Open the analysis (PDF)","assets/ai-incidents-ethics.pdf","primary"]],
+    preview:{src:"assets/ai-incidents-ethics.pdf#view=FitH",cap:"Live preview · AI Incidents and Ethics analysis (PDF)"}
   },
   quincy:{
     sub:"Bonus Artifact · Live Personal Build",

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI Incidents and Ethics — Racial Bias in a Healthcare Risk Algorithm</title>
+<style>
+  @page { size: Letter; margin: 0.9in 0.85in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #1a1f2b; line-height: 1.5; font-size: 11.5pt; margin: 0;
+  }
+  .cover {
+    text-align: center; padding: 1.4in 0 0.5in;
+    border-bottom: 3px solid #2b6cb0; margin-bottom: 26px;
+  }
+  .eyebrow {
+    font-family: "Helvetica Neue", Arial, sans-serif; letter-spacing: .18em;
+    text-transform: uppercase; font-size: 9pt; color: #2b6cb0; font-weight: 700;
+  }
+  h1 { font-size: 22pt; margin: 12px 0 6px; line-height: 1.15; }
+  .sub { color: #556; font-size: 12pt; font-style: italic; }
+  .byline {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.5pt;
+    color: #667; margin-top: 16px;
+  }
+  h2 {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 13pt;
+    color: #2b6cb0; margin: 22px 0 4px; border-bottom: 1px solid #d9e2ec;
+    padding-bottom: 4px;
+  }
+  h3 { font-size: 11.5pt; margin: 14px 0 2px; color: #22304a; }
+  p { margin: 6px 0; }
+  .lead { font-size: 12pt; color: #33405a; }
+  .concept {
+    background: #f6f9fc; border-left: 3px solid #2b6cb0;
+    padding: 10px 14px; margin: 12px 0; border-radius: 0 6px 6px 0;
+    page-break-inside: avoid;
+  }
+  .tag {
+    display: inline-block; font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 8pt; letter-spacing: .06em; text-transform: uppercase;
+    background: #2b6cb0; color: #fff; padding: 2px 8px; border-radius: 10px;
+    margin-bottom: 6px;
+  }
+  .label {
+    font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700;
+    font-size: 9.5pt; color: #22304a;
+  }
+  .refs { font-size: 10pt; }
+  .refs p { margin: 8px 0; text-indent: -20px; padding-left: 20px; }
+  .foot {
+    margin-top: 26px; border-top: 1px solid #d9e2ec; padding-top: 10px;
+    font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9pt; color: #778;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">AIML-500 · Workshop 6.2 · Applied Ethics</div>
+  <h1>AI Incidents and Ethics</h1>
+  <div class="sub">Racial Bias in a Healthcare Risk Algorithm</div>
+  <div class="byline">Koushik Reddy Pasula · Indiana Wesleyan University · Summer 2026</div>
+</div>
+
+<h2>Case Study Selection and Summary</h2>
+<p class="lead">In October 2019, researchers reported racial bias in a widely used healthcare risk
+  algorithm that helped health systems identify patients for extra care. The algorithm did not use
+  race directly; instead, it predicted future healthcare spending as a proxy for health need.</p>
+<p>Because less money was historically spent on Black patients with similar levels of illness, the
+  system underestimated their needs. Researchers found that correcting this proxy would more than
+  double the share of Black patients identified for additional care. The case showed how apparently
+  neutral data can reproduce existing inequities in high-stakes decisions.</p>
+
+<h2>Critical Analysis: Three Ethical Issues</h2>
+
+<div class="concept">
+  <span class="tag">Issue 1</span>
+  <h3>Unequal Access to Additional Care</h3>
+  <p><span class="label">Why I chose it.</span> This was the clearest harm in the case. Patients
+    with similar medical needs could be treated differently because the model converted an unequal
+    healthcare system into a prediction target.</p>
+  <p><span class="label">My thought process.</span> At first I expected bias to come from a sensitive
+    field such as race being included in the data. What changed my thinking was that race was
+    excluded, yet bias still appeared because healthcare cost was used as a stand-in for health need.
+    That proxy reflected differences in access and spending rather than differences in how sick
+    patients were. It showed me that removing a protected attribute does not make a model fair if the
+    target itself carries historical inequality.</p>
+  <p><span class="label">Proposed solution.</span> Define the prediction target around actual health
+    need, such as clinical conditions and outcomes, rather than future spending alone. Before
+    deployment, developers should also compare error rates and eligibility outcomes across
+    demographic groups to verify the model is not systematically withholding care.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Issue 2</span>
+  <h3>A Misleading Proxy for Health Need</h3>
+  <p><span class="label">Why I chose it.</span> The model was not simply making a bad prediction; it
+    was optimizing the wrong measure for the decision being made. Cost was convenient and measurable,
+    but it was not ethically equivalent to medical need.</p>
+  <p><span class="label">My thought process.</span> This made me think more carefully about how a
+    technically reasonable target can become an ethical problem. A model can perform well against the
+    label it was trained to predict and still produce harmful decisions if that label does not
+    represent the real goal. Predicting cost accurately could still understate the needs of patients
+    who historically received less care. The failure therefore started before model training, when
+    the problem and target variable were defined.</p>
+  <p><span class="label">Proposed solution.</span> Require a documented justification for every
+    high-impact proxy variable and test whether it behaves differently across affected groups. Model
+    validation should include domain experts who can challenge whether the chosen target actually
+    represents the human outcome the system is supposed to improve.</p>
+</div>
+
+<div class="concept">
+  <span class="tag">Issue 3</span>
+  <h3>Transparency, Oversight, and Accountability</h3>
+  <p><span class="label">Why I chose it.</span> The algorithm influenced who received additional
+    healthcare resources, yet patients could not realistically evaluate how that prioritization was
+    produced. High-stakes decision support requires stronger oversight than an ordinary business
+    prediction.</p>
+  <p><span class="label">My thought process.</span> Human involvement alone does not guarantee
+    meaningful oversight. Clinicians may trust a risk score because it appears objective, especially
+    when the model is already embedded in a workflow. If the model's target, limitations, and
+    subgroup performance are not visible, users may not know when to question its recommendation.
+    Responsibility can then become blurred between the vendor, the health system, and the clinician.</p>
+  <p><span class="label">Proposed solution.</span> Require independent bias audits, clear
+    documentation of model purpose and limitations, and ongoing monitoring after deployment. The
+    organization using the model should also assign a named owner responsible for reviewing harms and
+    suspending the system when performance becomes unsafe or inequitable.</p>
+</div>
+
+<h2>Reflection on Critical Thinking</h2>
+<p>When I started this case, I assumed algorithmic bias mainly came from biased training data or from
+  directly including a sensitive attribute such as race. My thinking changed when I saw that this
+  model excluded race and could still create racial disparities because healthcare cost was used as a
+  proxy for health need. I now see that fairness has to be considered when defining the problem,
+  choosing the target, validating the model, and monitoring it after deployment. This will influence
+  how I approach AI and data systems in my own work. I do not want to stop at asking whether a model
+  is accurate or whether a pipeline is technically correct. I will also ask what the target
+  represents, whose experience may be missing from the data, and whether errors are distributed
+  unevenly across groups before I trust the output.</p>
+
+<h2>Sources Used to Validate the Case Study</h2>
+<div class="refs">
+  <p>Obermeyer, Z., Powers, B., Vogeli, C., &amp; Mullainathan, S. (2019). Dissecting racial bias in
+    an algorithm used to manage the health of populations. <em>Science, 366</em>(6464), 447–453.
+    https://doi.org/10.1126/science.aax2342</p>
+  <p>National Library of Medicine. (2019). PubMed record for Dissecting racial bias in an algorithm
+    used to manage the health of populations (PMID 31649194).
+    https://pubmed.ncbi.nlm.nih.gov/31649194/</p>
+  <p>AI Incident Database. (2019). Incident 124: Optum Algorithmic Health Risk Scores Reportedly
+    Underestimated Black Patients' Needs. https://incidentdatabase.ai/cite/124/</p>
+  <p>UC Berkeley Center for Health Management and Innovation. (2019, October 25). Dissecting racial
+    bias in an algorithm used to manage the health of populations.
+    https://chmi.berkeley.edu/news/dissecting-racial-bias-in-an-algorithm-used-to-manage-the-health-of-populations</p>
+</div>
+
+<div class="foot">
+  AI disclosure: I used an AI tool to assist with research direction, organization, checking the
+  assignment structure and word limits, and improving grammar and clarity. I reviewed the sources
+  and revised the analysis and reflection to reflect my own understanding.
+</div>
+
+</body>
+</html>
