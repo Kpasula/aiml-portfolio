@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RAG System Case Study — Koushik Reddy Pasula</title>
+<style>
+  @page { size: letter; margin: 0.9in 0.85in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #1c2330; line-height: 1.5; font-size: 11pt; margin: 0;
+  }
+  h1 { font-family: "Playfair Display", Georgia, serif; font-size: 27pt; color: #1F3A5F; margin: 0 0 4px; }
+  .tagline { color: #0E6B6B; font-size: 12.5pt; font-style: italic; margin: 0 0 2px; }
+  .byline { color: #55606f; font-size: 10pt; margin: 0 0 18px; }
+  h2 { color: #1F3A5F; font-size: 15pt; margin: 22px 0 6px; padding-bottom: 4px; border-bottom: 2px solid #0E6B6B; }
+  h3 { color: #0E6B6B; font-size: 12pt; margin: 14px 0 3px; }
+  p { margin: 0 0 9px; }
+  ul { margin: 0 0 9px; padding-left: 20px; }
+  li { margin: 0 0 4px; }
+  .lead { color: #2a3342; }
+  figure { margin: 12px 0 6px; text-align: center; page-break-inside: avoid; }
+  figure img { width: 100%; max-width: 640px; border: 1px solid #e2e8f0; border-radius: 8px; }
+  figcaption { color: #55606f; font-size: 8.5pt; font-style: italic; margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9.5pt; }
+  th { background: #1F3A5F; color: #fff; text-align: left; padding: 6px 8px; }
+  td { border: 1px solid #cdd6e0; padding: 6px 8px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f4f7fa; }
+  .banner { background: #EEF3F7; border-left: 4px solid #0E6B6B; padding: 10px 14px; border-radius: 6px; margin: 12px 0; }
+  .foot { margin-top: 22px; padding-top: 8px; border-top: 1px solid #cdd6e0; color: #7a8794; font-size: 8.5pt; }
+</style>
+</head>
+<body>
+  <h1>Designing a Retrieval-Augmented Generation System</h1>
+  <p class="tagline">A knowledge assistant for a food &amp; beverage company — Brightline Beverages Co.</p>
+  <p class="byline">Koushik Reddy Pasula · AIML-505 Large Language Models &amp; Generative AI · Portfolio Artifact</p>
+
+  <div class="banner">
+    <strong>What this artifact shows:</strong> the ability to design an end-to-end AI system, chain
+    multiple tools toward one goal, evaluate outputs critically, and translate a technical design into
+    stakeholder value and risk — the core skills for leading a real AI initiative.
+  </div>
+
+  <h2>The Problem</h2>
+  <p class="lead">
+    Brightline Beverages produces sparkling waters, juices, and ready-to-drink teas, sold through
+    retailers and a customer support line. Its most safety-critical knowledge — allergen and nutrition
+    data, FDA labeling requirements, standard operating procedures, and years of customer-service logs —
+    is scattered across systems and hard to search. Representatives cannot always find accurate allergen
+    answers quickly, and new hires take months to learn where information lives. In this industry a wrong
+    allergen answer is not an inconvenience; it is a safety and compliance risk.
+  </p>
+
+  <h2>The Solution</h2>
+  <p>
+    A Retrieval-Augmented Generation (RAG) system grounds a large language model in Brightline's own
+    approved documents. An employee or customer asks a plain-language question; the system retrieves the
+    relevant passages from a trusted knowledge base and the model composes an answer <em>and cites the
+    source</em>. This reduces hallucination and keeps answers current without retraining the model.
+  </p>
+
+  <h2>System Architecture</h2>
+  <p>
+    Source documents are chunked, embedded into vectors, and indexed offline. At query time an
+    orchestrator embeds the question, retrieves the most similar chunks, assembles them into a prompt,
+    and passes that to the generative model — all inside a secure boundary that enforces role-based
+    access, PII redaction, and encryption.
+  </p>
+  <figure>
+    <img src="rag_architecture.png" alt="RAG architecture diagram">
+    <figcaption>Figure 1. RAG system architecture — request path (embed → search → retrieve → generate) inside a secure boundary.</figcaption>
+  </figure>
+
+  <h2>Query Workflow</h2>
+  <p>
+    A sample question — <em>"Is the mango seltzer nut-free?"</em> — is embedded, matched against the
+    allergen and product-spec documents, and answered with citations. A guardrail makes the system abstain
+    when no relevant document is retrieved, rather than guessing on a safety-critical question.
+  </p>
+  <figure>
+    <img src="rag_workflow.png" alt="RAG query workflow diagram">
+    <figcaption>Figure 2. RAG query workflow, including the no-retrieval guardrail.</figcaption>
+  </figure>
+
+  <h2>How I Built It — Decisions &amp; Tools</h2>
+  <table>
+    <tr><th style="width:26%">Decision point</th><th>What I chose and why</th></tr>
+    <tr><td>RAG vs. fine-tuning</td><td>Chose RAG because the knowledge changes often (recalls, reformulations) and must stay current without retraining.</td></tr>
+    <tr><td>Industry vertical</td><td>Chose food &amp; beverage deliberately — allergen and recall accuracy make the cost of a wrong answer concrete and testable.</td></tr>
+    <tr><td>Trust mechanism</td><td>Required citations on every answer and a guardrail that abstains when no document supports a response.</td></tr>
+    <tr><td>Validation</td><td>Built a working mock RAG system in NotebookLM, uploaded a source, and confirmed grounded, cited answers before finalizing the design.</td></tr>
+  </table>
+  <p>
+    <strong>Tools:</strong> ChatGPT (learning and drafting partner) · NotebookLM / Gemini Notebook
+    (hands-on RAG validation with cited answers) · custom-generated architecture and workflow diagrams ·
+    Microsoft Word for the full case study. Each tool played a distinct role — the assistant for learning,
+    NotebookLM for proof, the diagrams for communication.
+  </p>
+
+  <h2>Why It Matters</h2>
+  <p>
+    This work is evidence that I can take a leadership-level problem, design an AI system to solve it, make
+    and defend real trade-off decisions, and connect the technical design to the people who depend on it.
+    The same approach transfers to any organization with scattered, high-stakes knowledge — which is most
+    of them.
+  </p>
+
+  <div class="foot">
+    Portfolio artifact · AIML-505 · Koushik Reddy Pasula · Northstar Labs (course role) · 2026
+  </div>
+</body>
+</html>
